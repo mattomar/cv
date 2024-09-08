@@ -52,14 +52,4 @@
     overflow: hidden;
   }
   
-  #pages {
-    grid-row: 2/3;
-    width: 396.5px; /* Scaled A4 width */
-    height: 561px; /* Scaled A4 height */
-    background-color: #ffffff;
-    overflow-y: hidden; /* Hide overflow */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    margin: auto; /* Center horizontally and vertically */
-    position: relative;
-  }
-   
+ 

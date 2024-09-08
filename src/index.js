@@ -13,3 +13,4 @@ createRoot(document.getElementById("info")).render(
       <App />
      </StrictMode>
   );
+  
