@@ -1,0 +1,65 @@
+ 
+ body{
+
+  margin: 0;
+
+} 
+  
+#container {
+
+    display: grid;
+    grid-template-columns : 2fr 2fr;
+ 
+
+} 
+
+#info{
+
+
+    grid-column  : 1/2;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-y: scroll;
+    height: 100vh
+
+
+} 
+
+
+#info::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  #info::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Background of the scrollbar track */
+  }
+  
+  #info::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar handle */
+    border-radius: 4px; /* Rounded corners for the scrollbar handle */
+  }
+  
+  #info::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color when hovered */
+  }
+
+  #cv {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Adjust the middle row to take remaining space */
+    gap: 20px;
+    position: relative;
+    background-color: #eeeeee;
+    overflow: hidden;
+  }
+  
+  #pages {
+    grid-row: 2/3;
+    width: 396.5px; /* Scaled A4 width */
+    height: 561px; /* Scaled A4 height */
+    background-color: #ffffff;
+    overflow-y: hidden; /* Hide overflow */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: auto; /* Center horizontally and vertically */
+    position: relative;
+  }
+   

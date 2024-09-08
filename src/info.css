@@ -1,0 +1,69 @@
+form {
+    max-width: 450px;
+    padding: 20px;
+     border-radius: 8px;
+   }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Add flexbox to the container for the two input fields */
+  .row {
+    display: flex;
+    gap: 10px; /* Adds space between the two inputs */
+    justify-content: space-between;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 12px; /* Make the label font smaller */
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .row input[type="text"] {
+    width: 100%;
+
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .large-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical; /* Allows vertical resizing */
+  }
+
+
+ .add-experience-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.add-experience-button i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.add-experience-button:hover {
+  background-color: #0056b3;
+}
