@@ -58,3 +58,19 @@
   justify-content: center;
 
  }
+
+ @media (max-width: 768px) {
+  #container {
+    grid-template-columns: 1fr; /* Single column layout on mobile */
+    grid-template-rows: auto 1fr; /* Two rows, info takes second row */
+  }
+
+  #info {
+    grid-column: 1 / 2; /* Full width in mobile view */
+    height: auto; /* Adjust height for mobile */
+  }
+
+  #cv {
+    grid-column: 1 / 2; /* Full width in mobile view */
+  }
+}
