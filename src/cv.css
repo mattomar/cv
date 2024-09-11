@@ -1,1 +1,216 @@
- 
+/* Base font size for rem calculations (adjust if needed) */
+:root {
+  font-size: 16px; /* 1rem = 16px */
+}
+
+.controls {
+  position: fixed; /* Fixed positioning */
+  bottom: 1.25rem; /* Distance from the bottom of the viewport */
+  right: 15.625rem; /* Distance from the right of the viewport */
+  z-index: 1000; /* Ensure it’s above other content */
+  text-align: center;
+  margin: 0; /* Remove any default margins */
+}
+
+#cv {
+  font-family: Arial, sans-serif;
+  padding: 1.25rem;
+  max-width: 100%; /* Ensure the CV doesn't exceed the parent width */
+  word-wrap: break-word; /* Ensures long words break to fit the container */
+  overflow-wrap: break-word; /* Ensures content wraps properly */
+  box-sizing: border-box; /* Includes padding and border in the element's total width */
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+/* Name styling */
+.name {
+  font-size: 1.75rem; /* 28px */
+  font-weight: bold;
+  align-self: flex-start;
+  margin: 0.3125rem 0; /* Reduce space between each paragraph */
+  padding: 0; /* Remove any default padding */
+  color: black; /* Make text black */
+}
+
+/* Job title styling */
+.job-title {
+  font-size: 1.125rem; /* 18px */
+  margin: 0.3125rem 0; /* Reduce space between each paragraph */
+  padding: 0; /* Remove any default padding */
+  color: black; /* Make text black */
+}
+
+/* Contact info styling */
+.contact-info {
+  text-align: right;
+  font-size: 0.875rem; /* 14px */
+  color: gray; /* Lighter color */
+  margin: 0.3125rem 0; /* Reduce space between each paragraph */
+  padding: 0; /* Remove any default padding */
+}
+
+.short-bio-container {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  flex-wrap: wrap; /* Allows content to wrap within the flex container if needed */
+  gap: 4.375rem; /* Adds space between the title and content */
+  width: 100%; /* Ensure the container takes the full width */
+  box-sizing: border-box; /* Includes padding and border in the total width */
+}
+
+.short-bio-title {
+  font-size: 1.0625rem; /* 17px */
+  font-weight: bold;
+  color: black; /* Make text black */
+  white-space: nowrap; /* Prevents the title from wrapping */
+  flex-shrink: 0; /* Prevents the title from shrinking */
+}
+
+.short-bio-content {
+  font-size: 0.625rem; /* 10px */
+  word-wrap: break-word; /* Breaks long words to avoid overflow */
+  overflow-wrap: break-word; /* Ensures text wraps within the container */
+  flex: 1; /* Allows the content to take up the remaining space */
+  overflow: hidden; /* Hides overflow content */
+  box-sizing: border-box; /* Ensures padding and border are included in total width */
+  color: #999; /* Light shade (same as .experience-details) */
+}
+
+.experience-container {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  flex-wrap: wrap; /* Allows content to wrap if needed */
+  gap: 3.125rem; /* Space between title and details */
+  width: 100%; /* Ensure the container takes the full width */
+  box-sizing: border-box; /* Includes padding and border in total width */
+}
+
+.experience-title {
+  font-size: 0.875rem; /* 14px */
+  font-weight: bold; /* Match the font weight of the short bio title */
+  color: black; /* Make text black */
+  white-space: nowrap; /* Prevents wrapping */
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+.experience-details {
+  font-size: 0.625rem; /* 10px */
+  word-wrap: break-word; /* Breaks long words to avoid overflow */
+  overflow-wrap: break-word; /* Ensures text wraps within the container */
+  flex: 1; /* Allows the content to take up the remaining space */
+  overflow: hidden; /* Hides overflow content */
+  box-sizing: border-box; /* Ensures padding and border are included in total width */
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+  gap: 0.625rem; /* Space between each detail entry */
+  padding-top: 0.75rem; /* Space above the first entry */
+  color: #999; /* Light shade */
+}
+
+.experience-details p {
+  margin: 0.3125rem 0; /* Reduce space between each paragraph */
+  padding: 0; /* Remove any default padding */
+}
+
+.experience-dates {
+  display: flex;
+  align-items: center; /* Center-align items vertically */
+  font-size: 0.625rem; /* 10px */
+  word-wrap: break-word; /* Ensure dates wrap properly */
+  color: #999; /* Light shade */
+}
+.experience-title {
+  font-size: 0.75rem; /* 12px */
+  font-weight: bold;
+  color: black; /* Make text black */
+  margin: 0.3125rem 0; /* Space between paragraphs */
+}
+
+.experience-company {
+  font-size: 0.75rem; /* 12px */
+  font-weight: bold;
+  color: black; /* Make text black */
+  margin: 0.3125rem 0; /* Space between paragraphs */
+}
+
+.experience-location {
+  font-size: 0.625rem; /* 10px */
+  font-weight: normal; /* Less bold */
+  color: black; /* Make text black */
+  margin: 0.3125rem 0; /* Space between paragraphs */
+}
+
+.experience-dates {
+  font-size: 0.625rem; /* 10px */
+  font-weight: normal; /* Less bold */
+  color: black; /* Make text black */
+  margin: 0.3125rem 0; /* Space between paragraphs */
+}
+
+
+
+.education-container {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  flex-wrap: wrap; /* Allows content to wrap if needed */
+  gap: 3.125rem; /* Space between title and details */
+  width: 100%; /* Ensure the container takes the full width */
+  box-sizing: border-box; /* Includes padding and border in total width */
+}
+
+.education-title {
+  font-size: 0.875rem; /* 14px */
+  font-weight: bold; /* Match the font weight of the experience title */
+  color: black; /* Make text black */
+  white-space: nowrap; /* Prevents wrapping */
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+.education-details {
+  font-size: 0.75rem; /* 12px */
+  word-wrap: break-word; /* Breaks long words to avoid overflow */
+  overflow-wrap: break-word; /* Ensures text wraps within the container */
+  flex: 1; /* Allows the content to take up the remaining space */
+  overflow: hidden; /* Hides overflow content */
+  box-sizing: border-box; /* Ensures padding and border are included in total width */
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+  gap: 0.625rem; /* Space between each detail entry */
+  padding-top: 0.75rem; /* Space above the first entry */
+}
+
+.education-details p {
+  margin: 0.3125rem 0; /* Space between paragraphs */
+}
+
+.education-institution,
+.education-degree,
+.education-field-of-study {
+  font-size: 0.75rem; /* 12px */
+  font-weight: bold; /* Make text bold */
+  color: black; /* Make text black */
+}
+
+.education-dates {
+  font-size: 0.75rem; /* 12px */
+  color: black; /* Make text black */
+  font-weight: normal; /* Less bold */
+}
+
+.education-description {
+  font-size: 0.75rem; /* 12px */
+  font-weight: normal; /* Less bold */
+  word-wrap: break-word; /* Breaks long words to avoid overflow */
+  overflow-wrap: break-word; /* Ensures text wraps within the container */
+  flex: 1; /* Allows the content to take up the remaining space */
+  overflow: hidden; /* Hides overflow content */
+  box-sizing: border-box; /* Ensures padding and border are included in total width */
+  color: #999; /* Light shade */
+
+}

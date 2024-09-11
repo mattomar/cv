@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Page from './Page'; // Import the Page component
+import './cv.css'; // Import the CSS file
 
 function Cv({ formData }) {
   const [pages, setPages] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const pageHeightLimit = 561; // Scaled A4 height in pixels
@@ -29,33 +31,76 @@ function Cv({ formData }) {
 
       document.body.removeChild(tempDiv);
     };
-
-    // Add header content
     addContentToPage(`
-      <h2>${formData.job}</h2>
-      <p>Name: ${formData.firstName} ${formData.lastName}</p>
-      <p>Email: ${formData.email}</p>
-      <p>Address: ${formData.address}</p>
-      <p>Phone Number: ${formData.phoneNumber}</p>
-      <h3>Short Bio</h3>
-      <p>${formData.bio}</p>
-      <h3>Experiences</h3>
+    <div class="header">
+      <div>
+        <p class="name">${formData.firstName} ${formData.lastName}</p>
+        <p class="job-title">${formData.job}</p>
+      </div>
+      <div class="contact-info">
+        <p> ${formData.email}</p>
+        <p> ${formData.phoneNumber}</p>
+        <p>  ${formData.address}</p>
+      </div>
+    </div>
+       <div class="short-bio-container">
+        <div class="short-bio-title">Short Bio</div>
+        <div class="short-bio-content">${formData.bio}</div>
+      </div>
     `);
 
-    // Add experiences
-    formData.experiences.forEach((experience, index) => {
-      const experienceContent = `
-        <div key=${index}>
-          <p>Job Title: ${experience.jobTitle}</p>
-          <p>Company: ${experience.company}</p>
-          <p>From: ${experience.from}</p>
-          <p>To: ${experience.to}</p>
-          <p>Location: ${experience.location}</p>
-          <p>Description: ${experience.description}</p>
-        </div>
-      `;
-      addContentToPage(experienceContent);
-    });
+    addContentToPage(`
+    <div class="experience-container">
+      <div class="experience-title">
+        <h3>Experiences</h3>
+      </div>
+      <div class="experience-details">
+  `);
+  
+  formData.experiences.forEach((experience, index) => {
+    const experienceContent = `
+      <div key=${index}>
+        <p class="experience-title">${experience.jobTitle}</p>
+        <p class="experience-company">${experience.company}</p>
+        <p class="experience-location">${experience.location}</p>
+        <p class="experience-dates">${experience.from} - ${experience.to}</p>
+        <p>${experience.description}</p>
+
+      </div>
+    `;
+    addContentToPage(experienceContent);
+  });
+  addContentToPage(`
+      </div>
+    </div>
+  `);
+  addContentToPage(`
+  <div class="education-container">
+    <div class="education-title">
+      <h3>Education</h3>
+    </div>
+    <div class="education-details">
+`);
+
+// Loop through education
+formData.education.forEach((edu, index) => {
+  const educationContent = `
+    <div key=${index}>
+      <p class="education-institution"> ${edu.institution}</p>
+      <p class="education-degree"> ${edu.degree}</p>
+      <p class="education-field-of-study"> ${edu.fieldOfStudy}</p>
+      <p class="education-dates"> ${edu.startYear} - ${edu.endYear}</p>
+      <p class="education-description"> ${edu.description}</p>
+    </div>
+    <hr />
+  `;
+  addContentToPage(educationContent);
+});
+
+addContentToPage(`
+    </div>
+  </div>
+`);
 
     if (currentPageContent) {
       newPages.push(currentPageContent);
@@ -76,16 +121,37 @@ function Cv({ formData }) {
         cvContainer.appendChild(pagesElement);
       }
 
-      // Clear the existing content and re-render the pages
-      pagesElement.innerHTML = pages.map((content, index) => `
-        <div key=${index} class="page">
-          ${content}
+      // Clear the existing content and re-render only the current page
+      pagesElement.innerHTML = `
+        <div class="page">
+          ${pages[currentPage] || ''}
         </div>
-      `).join('');
+      `;
     }
-  }, [pages]);
+  }, [pages, currentPage]);
 
-  return null; // Do not return anything as we're directly appending to #cv
+  const handleNextPage = () => {
+    if (currentPage < pages.length - 1) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
+
+  return (
+    <div id="controls" className="controls">
+      <button onClick={handlePreviousPage} disabled={currentPage === 0}>
+        Previous
+      </button>
+      <button onClick={handleNextPage} disabled={currentPage === pages.length - 1}>
+        Next
+      </button>
+    </div>
+  );
 }
 
 export default Cv;

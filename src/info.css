@@ -49,21 +49,24 @@ form {
   }
 
 
- .add-experience-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.add-experience-button i {
-  margin-right: 8px; /* Space between icon and text */
-}
-
-.add-experience-button:hover {
-  background-color: #0056b3;
-}
+  .add-experience-button,
+  .add-education-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .add-experience-button i,
+  .add-education-button i {
+    margin-right: 8px; /* Space between icon and text */
+  }
+  
+  .add-experience-button:hover,
+  .add-education-button:hover {
+    background-color: #0056b3;
+  }

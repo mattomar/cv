@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "./info.css";
 import Cv from "./cv";
 
@@ -13,8 +12,8 @@ function Details() {
     phoneNumber: "",
     bio: "",
     experiences: [],
+    education: [], // Added education state
   });
-  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -43,6 +42,29 @@ function Details() {
       experiences: [
         ...prevData.experiences,
         { jobTitle: "", company: "", from: "", to: "", location: "", description: "" },
+      ],
+    }));
+  };
+
+  const handleEducationChange = (index, event) => {
+    const { name, value } = event.target;
+    const updatedEducation = [...formData.education];
+    updatedEducation[index] = {
+      ...updatedEducation[index],
+      [name]: value,
+    };
+    setFormData((prevData) => ({
+      ...prevData,
+      education: updatedEducation,
+    }));
+  };
+
+  const addEducation = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      education: [
+        ...prevData.education,
+        { institution: "", degree: "", fieldOfStudy: "", startYear: "", endYear: "", description: "" },
       ],
     }));
   };
@@ -117,6 +139,20 @@ function Details() {
         ))}
         <button type="button" className="add-experience-button" onClick={addExperience}>
           <i className="fas fa-plus"></i> Add New Experience
+        </button>
+        <hr />
+
+        <h2>Your Education</h2>
+        {formData.education.map((edu, index) => (
+          <EducationEntry
+            key={index}
+            index={index}
+            education={edu}
+            onChange={handleEducationChange}
+          />
+        ))}
+        <button type="button" className="add-education-button" onClick={addEducation}>
+          <i className="fas fa-plus"></i> Add New Education
         </button>
       </form>
       
@@ -208,6 +244,61 @@ function ExperienceEntry({ index, experience, onChange }) {
         value={experience.description}
         onChange={(e) => onChange(index, e)}
         placeholder="Describe your experience"
+      />
+      <hr />
+    </div>
+  );
+}
+
+function EducationEntry({ index, education, onChange }) {
+  return (
+    <div className="education-entry">
+      <h3>Education {index + 1}</h3>
+      <CustomInput
+        label="Institution"
+        name="institution"
+        value={education.institution}
+        onChange={(e) => onChange(index, e)}
+        placeholder="Enter institution name"
+      />
+      <CustomInput
+        label="Degree"
+        name="degree"
+        value={education.degree}
+        onChange={(e) => onChange(index, e)}
+        placeholder="Enter degree"
+      />
+      <CustomInput
+        label="Field of Study"
+        name="fieldOfStudy"
+        value={education.fieldOfStudy}
+        onChange={(e) => onChange(index, e)}
+        placeholder="Enter field of study"
+      />
+      <div className="row">
+        <CustomInput
+          label="Start Year"
+          name="startYear"
+          value={education.startYear}
+          onChange={(e) => onChange(index, e)}
+          placeholder="Start year"
+          type="number"
+        />
+        <CustomInput
+          label="End Year"
+          name="endYear"
+          value={education.endYear}
+          onChange={(e) => onChange(index, e)}
+          placeholder="End year"
+          type="number"
+        />
+      </div>
+      <CustomTextarea
+        label="Description"
+        name="description"
+        value={education.description}
+        onChange={(e) => onChange(index, e)}
+        placeholder="Describe your education"
       />
       <hr />
     </div>

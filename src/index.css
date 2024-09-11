@@ -50,6 +50,11 @@
     position: relative;
     background-color: #eeeeee;
     overflow: hidden;
+    justify-content: center;
+
   }
   
- 
+ #pages {
+  justify-content: center;
+
+ }
